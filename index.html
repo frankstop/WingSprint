@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#8bd8df" />
+    <meta name="description" content="Guide a tiny swift through a coastal windway in this one-tap pixel arcade game." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="WINGSPRINT" />
+    <meta property="og:title" content="WINGSPRINT" />
+    <meta property="og:description" content="Tap to fly through the coastal windway." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="%BASE_URL%assets/social-preview.png" />
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="%BASE_URL%icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%icons/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%BASE_URL%icons/favicon-16.png" />
+    <link rel="shortcut icon" href="%BASE_URL%icons/favicon.ico" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSVR6Y389R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("config", "G-RSVR6Y389R", {
+        anonymize_ip: true,
+        send_page_view: true
+      });
+    </script>
+    <title>WINGSPRINT</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

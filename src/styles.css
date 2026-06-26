@@ -1,0 +1,280 @@
+:root {
+  font-family: "Courier New", ui-monospace, monospace;
+  color: #072a59;
+  background: #061d3b;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  width: 100%;
+  height: 100dvh;
+  place-items: center;
+  background: #061d3b;
+}
+
+.game-stage {
+  position: relative;
+  width: min(100vw, calc(100dvh * 402 / 874));
+  height: min(100dvh, calc(100vw * 874 / 402));
+  overflow: hidden;
+  background: #8bd8df;
+  container-type: size;
+  isolation: isolate;
+}
+
+.game-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sound-button {
+  position: absolute;
+  z-index: 5;
+  top: max(14px, calc(env(safe-area-inset-top) + 8px));
+  right: max(14px, calc(env(safe-area-inset-right) + 12px));
+  display: grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  place-items: center;
+  border: 4px solid #072a59;
+  border-radius: 2px;
+  color: #072a59;
+  background: #fff4d4;
+  box-shadow: 0 4px 0 #061d3b;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.ready-overlay,
+.results-overlay,
+.pause-overlay {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.ready-overlay h1 {
+  max-width: 90%;
+  margin: 9px 0 4px;
+  color: #fff4d4;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(36px, 12cqw, 54px);
+  font-weight: 1000;
+  letter-spacing: 0.015em;
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+    4px 0 #072a59,
+    -4px 0 #072a59,
+    0 4px #072a59,
+    0 -4px #072a59,
+    5px 6px #f26b51;
+}
+
+.ready-overlay img {
+  width: 48px;
+  height: 48px;
+  margin-top: max(110px, calc(env(safe-area-inset-top) + 74px));
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.ready-overlay p {
+  margin: 238px 0 0;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(24px, 7cqw, 32px);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 0 #fff4d4;
+}
+
+.tap-cue {
+  margin-top: 11px;
+  color: #fff4d4;
+  font-size: 24px;
+  text-shadow: 2px 2px 0 #072a59;
+  animation: tap-bob 850ms steps(2, end) infinite;
+}
+
+.score {
+  position: absolute;
+  z-index: 3;
+  top: max(72px, calc(env(safe-area-inset-top) + 48px));
+  left: 50%;
+  color: white;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(48px, 15cqw, 68px);
+  font-weight: 1000;
+  line-height: 1;
+  transform: translateX(-50%);
+  text-shadow:
+    4px 0 #072a59,
+    -4px 0 #072a59,
+    0 4px #072a59,
+    0 -4px #072a59;
+}
+
+.results-overlay {
+  padding-top: max(150px, calc(env(safe-area-inset-top) + 110px));
+}
+
+.results-overlay h2 {
+  margin: 0 0 145px;
+  color: #072a59;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(32px, 9cqw, 42px);
+  font-weight: 1000;
+  letter-spacing: -0.04em;
+  text-shadow: 2px 2px 0 #fff4d4;
+}
+
+.result-panel {
+  display: flex;
+  width: min(330px, 84%);
+  min-height: 150px;
+  align-items: center;
+  padding: 18px 22px;
+  border: 5px solid #072a59;
+  border-radius: 2px;
+  background: #fff4d4;
+  box-shadow: 0 6px 0 #061d3b;
+}
+
+.result-panel img {
+  width: 86px;
+  height: 86px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.result-panel dl {
+  display: grid;
+  flex: 1;
+  gap: 10px;
+  margin: 0 0 0 20px;
+}
+
+.result-panel dl div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.result-panel dt {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.result-panel dd {
+  margin: 0;
+  font-size: 35px;
+  font-weight: 1000;
+}
+
+.retry-button,
+.pause-overlay button {
+  min-width: 230px;
+  min-height: 58px;
+  margin-top: 28px;
+  padding: 8px 24px;
+  pointer-events: auto;
+  border: 5px solid #072a59;
+  border-radius: 2px;
+  color: #fff4d4;
+  background: #f26b51;
+  font-family: Impact, "Arial Black", sans-serif;
+  box-shadow: 0 6px 0 #061d3b;
+  font-size: 26px;
+  font-weight: 1000;
+  letter-spacing: 0.03em;
+}
+
+.retry-button:active,
+.pause-overlay button:active,
+.sound-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #061d3b;
+}
+
+.pause-overlay {
+  justify-content: center;
+  background: rgb(7 42 89 / 74%);
+  color: #fff4d4;
+}
+
+.pause-overlay p {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 1000;
+  text-shadow: 4px 4px 0 #061d3b;
+}
+
+.landscape-message {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  display: none;
+  place-items: center;
+  padding: 32px;
+  color: #fff4d4;
+  background: #072a59;
+  font-size: 26px;
+  font-weight: 900;
+  text-align: center;
+}
+
+@keyframes tap-bob {
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .landscape-message {
+    display: grid;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tap-cue {
+    animation: none;
+  }
+}
