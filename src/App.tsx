@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { trackEvent } from "./analytics";
 import { GameCanvas } from "./components/GameCanvas";
+import { IosInstallPrompt } from "./components/IosInstallPrompt";
 import { AudioManager } from "./game/audio";
 import { GameModel } from "./game/model";
 import { readBestScore, readMuted, writeBestScore, writeMuted } from "./game/storage";
@@ -120,6 +121,7 @@ export function App() {
         }}
       >
         <GameCanvas snapshot={snapshot} reduceMotion={reduceMotion} />
+        <IosInstallPrompt />
 
         <button
           className="sound-button"

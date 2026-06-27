@@ -22,7 +22,7 @@ pnpm build
 
 ## Google Analytics
 
-Google Analytics 4 is configured with measurement ID `G-RSVR6Y389R`. The game lifecycle events are `start_game`, `end_game`, and `try_again`; scoring, resume, and mute changes are also recorded.
+Google Analytics 4 is configured with measurement ID `G-RSVR6Y389R`. The game lifecycle events are `start_game`, `end_game`, and `try_again`; scoring, resume, and mute changes are also recorded. The iPhone installation prompt records `ios_install_prompt_view`, `ios_install_prompt_dismiss`, and `ios_install_instruction_click`.
 
 ## GitHub Pages
 
